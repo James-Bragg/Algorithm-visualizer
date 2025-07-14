@@ -35,12 +35,21 @@ class GUIVisualInfo:
 
     # setting list and creating GUI objects to visualize data onto the screen using the min/max values from the array
     def setList(self, array):
-        self.array = array
-        self.min = min(array)
-        self.max = max(array)
+        cleaned_array = [int(x) for x in array if x.strip().isdigit()]
 
-        self.DataBlockWidth = round((self.width - self.Margin) / len(array))
-        self.DataBlockHeight = math.floor((self.height - self.TopBorder) / (self.max - self.min))
+        if not cleaned_array:
+            raise ValueError("The input array contains no valid numeric values.")
+
+        self.array = cleaned_array
+        self.min = min(self.array)
+        self.max = max(self.array)
+
+        if self.max == self.min:
+            self.DataBlockHeight = 1
+        else:
+            self.DataBlockHeight = math.floor((self.height - self.TopBorder) / (self.max - self.min))
+
+        self.DataBlockWidth = round((self.width - self.Margin) / len(self.array))
         self.initializeX = self.Margin // 2
    
 def main(array, sort):

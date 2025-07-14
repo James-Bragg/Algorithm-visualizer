@@ -1,6 +1,6 @@
 from tkinter import *
 import tkinter as tk
-import xdrlib
+
 from PIL import ImageTk, Image #pip install pillow
 import sqlite3
 

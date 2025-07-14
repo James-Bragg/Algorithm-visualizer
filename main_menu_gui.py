@@ -1,7 +1,6 @@
 from tkinter import *
 from pygame_visualizer import *
 import tkinter as tk
-import xdrlib
 from PIL import ImageTk, Image #pip install pillow
 from DBViewer import *
 from tkinter import filedialog
