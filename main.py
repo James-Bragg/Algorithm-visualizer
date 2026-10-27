@@ -1,12 +1,6 @@
-from main_menu_gui import start
+"""Convenience launcher so ``python main.py`` keeps working."""
 
-# Starts the application
-def main():
-    start()
+from algorithm_visualizer.__main__ import main
 
-if __name__ == '__main__':
-    main()
-
-
-
-
+if __name__ == "__main__":
+    raise SystemExit(main())
